@@ -1,20 +1,12 @@
 package com.kozak.services;
 
 import com.kozak.models.GeolocationData;
-import com.kozak.repositories.GeolocationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
-public class GeolocationService {
-    private GeolocationRepository geolocationRepository;
+import java.util.List;
 
-    @Autowired
-    public GeolocationService(GeolocationRepository geolocationRepository) {
-        this.geolocationRepository = geolocationRepository;
-    }
+public interface GeolocationService {
 
-    public GeolocationData save(GeolocationData data) {
-        return geolocationRepository.save(data);
-    }
+    GeolocationData save(GeolocationData data);
+
+    List<GeolocationData> findAll();
 }

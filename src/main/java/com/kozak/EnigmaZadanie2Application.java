@@ -1,4 +1,4 @@
-package com.kozak.EnigmaZadanie2;
+package com.kozak;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
