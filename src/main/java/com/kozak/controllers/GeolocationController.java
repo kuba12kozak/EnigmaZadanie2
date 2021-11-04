@@ -2,7 +2,6 @@ package com.kozak.controllers;
 
 import com.kozak.models.GeolocationData;
 import com.kozak.services.GeolocationService;
-import com.kozak.services.GeolocationServiceImpl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +35,7 @@ public class GeolocationController {
 
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
     public boolean saveGeolocationData(@Valid @RequestBody GeolocationData data) {
         log.info("Geolocation data received.");
         GeolocationData savedData = geolocationService.save(data);
@@ -48,6 +48,7 @@ public class GeolocationController {
 
     @GetMapping()
     @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
     public List<GeolocationData> findAll() {
         log.info("Getting all geolocation data.");
         return geolocationService.findAll();
