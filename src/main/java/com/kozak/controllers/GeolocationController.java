@@ -36,14 +36,9 @@ public class GeolocationController {
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public boolean saveGeolocationData(@Valid @RequestBody GeolocationData data) {
+    public GeolocationData saveGeolocationData(@Valid @RequestBody GeolocationData data) {
         log.info("Geolocation data received.");
-        GeolocationData savedData = geolocationService.save(data);
-        if (savedData == null) {
-            return false;
-        }
-        log.info("Saved data: " + savedData);
-        return true;
+        return geolocationService.save(data);
     }
 
     @GetMapping()
